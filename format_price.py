@@ -1,10 +1,9 @@
 def format_price(price):
-    try:
-        if price % 1 == 0:
-            price = int(price)
-        return '{0:,}'.format(price).replace(',', ' ')
-    except TypeError:
+    if not type(price) == int and not type(price) == float:
         return None
+    if type(price) == float and price % 1 == 0:
+        price = int(price)
+    return '{:,}'.format(price).replace(',', ' ')
 
 if __name__ == '__main__':
     try:
